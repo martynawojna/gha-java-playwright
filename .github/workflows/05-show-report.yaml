@@ -1,0 +1,40 @@
+name: Show Report Workflow
+on: push
+
+jobs:
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Run tests
+        run: mvn test
+
+      - name: Show test report
+        uses: phoenix-actions/test-reporting@v15
+        with:
+          artifact: test-results
+          name: Surefire Reports
+          path: target/reports/surefire.html
+          reporter: java-junit
+
+      - name: Add test report link to summary
+        run:
+          echo "Test report: [ Surefire Report ](target/reports/surefire.html)" >> $GITHUB_STEP_SUMMARY
