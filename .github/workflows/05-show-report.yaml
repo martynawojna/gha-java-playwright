@@ -28,8 +28,11 @@ jobs:
         run: mvn test
 
       - name: Publish test report
-        if: success() || failure()
-        uses: scacap/action-surefire-report@v1
+        uses: phoenix-actions/test-reporting@v15
+        with:
+          name: Surefire Reports
+          path: target/surefire-reports/TEST-*.xml
+          reporter: java-junit
 
       - name: Add test report link to summary
         run: |
