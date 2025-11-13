@@ -32,7 +32,7 @@ jobs:
         with:
           artifact: test-results
           name: Surefire Reports
-          path: target/reports/surefire/*.xml
+          path: target/surefire-reports/*.xml
           reporter: java-junit
 
       - name: Add test report link to summary
