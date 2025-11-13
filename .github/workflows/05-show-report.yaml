@@ -33,4 +33,5 @@ jobs:
 
       - name: Add test report link to summary
         run: |
-          echo "Test report: [ Surefire Report ](target/surefire-reports/TEST-*.xml)" >> $GITHUB_STEP_SUMMARY
+          latest_report=$(ls -t target/surefire-reports/TEST-*.xml | head -n 1)
+          echo "Test report: [ Surefire Report ]($latest_report)" >> $GITHUB_STEP_SUMMARY
