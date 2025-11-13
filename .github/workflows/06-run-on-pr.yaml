@@ -1,4 +1,4 @@
-name: Cache Dependencies Workflow
+name: Run on Pull Requests Workflow
 on:
   pull_request:
     types: [ opened, reopened ]
