@@ -27,16 +27,9 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: List test report files
-        run: ls -l target/surefire-reports/
-
-      - name: Show test report
-        uses: phoenix-actions/test-reporting@v15
-        with:
-          artifact: test-results
-          name: Surefire Reports
-          path: target/surefire-reports/TEST-*.xml
-          reporter: java-junit
+      - name: Publish test report
+        if: success() || failure()
+        uses: scacap/action-surefire-report@v1
 
       - name: Add test report link to summary
         run: |
