@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Post fake test report
-        uses: ./.github/actions/playwright-summary/action.yaml
+        uses: ./.github/actions/playwright-summary/
