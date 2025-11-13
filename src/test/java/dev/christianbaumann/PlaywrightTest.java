@@ -59,7 +59,7 @@ public class PlaywrightTest {
         page.navigate("https://playwright.dev/");
 
         // Assert
-        assertTrue(page.title().contains("Playwright"), "Page title should contain 'Playwright'");
+        assertTrue(page.title().contains("Playwright222"), "Page title should contain 'Playwright'");
         logTestInfo(testInfo, "✅ Title validation successful (PW).");
     }
 

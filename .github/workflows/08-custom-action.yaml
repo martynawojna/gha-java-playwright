@@ -1,0 +1,14 @@
+name: Custom Action Workflow
+on: push
+
+jobs:
+  custom-action-workflow:
+    name: Custom Action Workflow
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Post fake test report
+        uses: .github/actions/playwright-summary/action.yaml
