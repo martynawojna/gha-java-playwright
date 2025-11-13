@@ -35,9 +35,9 @@ jobs:
         with:
           artifact: test-results
           name: Surefire Reports
-          path: target/surefire-reports/*.xml
+          path: target/surefire-reports/TEST-*.xml
           reporter: java-junit
 
       - name: Add test report link to summary
         run: |
-          echo "Test report: [ Surefire Report ](target/reports/surefire.html)" >> $GITHUB_STEP_SUMMARY
+          echo "Test report: [ Surefire Report ](target/surefire-reports/TEST-*.xml)" >> $GITHUB_STEP_SUMMARY
