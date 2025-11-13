@@ -33,8 +33,4 @@ jobs:
           name: Surefire Reports
           path: target/surefire-reports/TEST-*.xml
           reporter: java-junit
-
-      - name: Add test report link to summary
-        run: |
-          latest_report=$(ls -t target/surefire-reports/TEST-*.xml | head -n 1)
-          echo "Test report: [ Surefire Report ]($latest_report)" >> $GITHUB_STEP_SUMMARY
+          output-to: 'step-summary'
