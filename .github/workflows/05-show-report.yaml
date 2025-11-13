@@ -27,6 +27,9 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      - name: List test report files
+        run: ls -l target/surefire-reports/
+
       - name: Show test report
         uses: phoenix-actions/test-reporting@v15
         with:
