@@ -36,5 +36,5 @@ jobs:
           reporter: java-junit
 
       - name: Add test report link to summary
-        run:
+        run: |
           echo "Test report: [ Surefire Report ](target/reports/surefire.html)" >> $GITHUB_STEP_SUMMARY
