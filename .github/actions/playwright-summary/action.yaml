@@ -1,0 +1,15 @@
+name: 'Custom Action 08'
+description: 'Process fake Playwright test results and generate a summary report.'
+inputs:
+  results-path:
+    description: 'Path to the Playwright test results txt file.'
+    required: true
+    default: 'test-result/report.txt'
+runs:
+  using: "composite"
+  steps:
+    - name: Post test summary
+      run: |
+        REPORT_CONTENT=$(cat ${{ inputs.results-path }})
+        echo "$REPORT_CONTENT" >> $GITHUB_STEP_SUMMARY
+      shell: bash

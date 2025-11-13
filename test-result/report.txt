@@ -1,0 +1,30 @@
+Test Suite: Playwright UI Tests
+=================================
+
+Test: should load homepage
+Result: PASSED
+Duration: 1.2s
+
+Test: should search for item
+Result: FAILED
+Duration: 0.9s
+Error: Expected search results to contain 'Playwright', but got []
+
+Test: should login with valid credentials
+Result: PASSED
+Duration: 1.5s
+
+Test: should display error for invalid login
+Result: PASSED
+Duration: 1.1s
+
+Test: should add item to cart
+Result: FAILED
+Duration: 1.3s
+Error: Cart did not update after adding item
+
+Summary:
+Passed: 3
+Failed: 2
+Total: 5
+
