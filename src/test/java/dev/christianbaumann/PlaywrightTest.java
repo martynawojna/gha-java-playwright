@@ -60,7 +60,7 @@ public class PlaywrightTest {
 
         // Assert
         assertTrue(page.title().contains("Playwright"), "Page title should contain 'Playwright'");
-        logTestInfo(testInfo, "✅ Title validation successful (PW).");
+        logTestInfo(testInfo, "✅ Title validation successful (Playwright).");
     }
 
     @Test
